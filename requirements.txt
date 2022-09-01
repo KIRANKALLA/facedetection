@@ -1,4 +1,4 @@
-opencv-python
+python3-opencv
 streamlit
 imutils
 sklearn
