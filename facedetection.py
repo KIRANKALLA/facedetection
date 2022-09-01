@@ -23,7 +23,7 @@ blob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 1.0, (300, 300), (10
 
 net.setInput(blob)
 detections = net.forward()
-
+c=0
 for i in range(0, detections.shape[2]):
 
 	# extract the confidence (i.e., probability) associated with the prediction
@@ -32,7 +32,7 @@ for i in range(0, detections.shape[2]):
 	# filter out weak detections by ensuring the `confidence` is
 	# greater than the minimum confidence threshold
 	if confidence > 0.5:
-		print(confidence)
+		c+=1
 		# compute the (x, y)-coordinates of the bounding box for the object
 		box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 		(startX, startY, endX, endY) = box.astype("int")
@@ -43,3 +43,4 @@ for i in range(0, detections.shape[2]):
 		cv2.putText(image, text, (startX, y),
 		cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
 st.image(image)
+st.success(f'The number of persons are {c}')
