@@ -1,4 +1,3 @@
-%%writefile app.py
 import imutils
 import numpy as np
 import cv2
