@@ -37,5 +37,4 @@ for i in range(0, detections.shape[2]):
 		cv2.putText(image, text, (startX, y),
 		cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
 
-
-st.image(image)
+	st.image(image)
