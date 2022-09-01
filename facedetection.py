@@ -27,7 +27,7 @@ for i in range(0, detections.shape[2]):
 	# greater than the minimum confidence threshold
 	if confidence > 0.5:
 		# compute the (x, y)-coordinates of the bounding box for the object
-		box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+		box = detections[0, 0, i, 3:7] 
 		(startX, startY, endX, endY) = box.astype("int")
 		# draw the bounding box of the face along with the associated probability
 		text = "{:.2f}%".format(confidence * 100)
