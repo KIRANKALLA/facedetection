@@ -24,11 +24,10 @@ if img_file_buffer is not None:
     detections = net.forward()
 
     for i in range(0, detections.shape[2]):
-		
-		# extract the confidence (i.e., probability) associated with the prediction
+	# extract the confidence (i.e., probability) associated with the prediction
 	confidence = detections[0, 0, i, 2]
-		# filter out weak detections by ensuring the `confidence` is
-		# greater than the minimum confidence threshold
+	# filter out weak detections by ensuring the `confidence` is
+	# greater than the minimum confidence threshold
 	if confidence > 0.5:
 		# compute the (x, y)-coordinates of the bounding box for the object
 		box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
