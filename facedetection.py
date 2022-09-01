@@ -7,6 +7,7 @@ from PIL import Image
 import numpy as np
 
 img_file_buffer=st.camera_input('Take a pic')
+img_array=None
 if img_file_buffer is not None:
     img=Image.open(img_file_buffer)
     img_array=np.array(img)
