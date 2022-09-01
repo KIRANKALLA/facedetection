@@ -24,6 +24,7 @@ if img_file_buffer is not None:
     detections = net.forward()
 
     for i in range(0, detections.shape[2]):
+		
 		# extract the confidence (i.e., probability) associated with the prediction
 		confidence = detections[0, 0, i, 2]
 		# filter out weak detections by ensuring the `confidence` is
