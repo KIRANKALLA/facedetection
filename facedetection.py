@@ -1,25 +1,29 @@
-import cv2
+%%writefile app.py
 import imutils
 import numpy as np
-from PIL import Image
+import cv2
+from google.colab.patches import cv2_imshow
+from IPython.display import display, Javascript
+from google.colab.output import eval_js
+from base64 import b64decode
 import streamlit as st
+from PIL import Image
+import numpy as np
 
-image = st.camera_input("Take a picture")
-
-if image is not None:
-    bytes_data = image.getvalue()
-    
-
-#image=np.array(image)
+img_file_buffer=st.camera_input('Take a pic')
+if img_file_buffer is not None:
+    img=Image.open('img_file_buffer')
+    img_array=np.array(img)
+image = imutils.resize(image, width=400)
+(h, w) = image.shape[:2]
 
 prototxt = 'deploy.prototxt'
 model = 'res10_300x300_ssd_iter_140000.caffemodel'
 net = cv2.dnn.readNetFromCaffe(prototxt, model)
-image = imutils.resize(image, width=400)
 blob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
-
 net.setInput(blob)
 detections = net.forward()
+
 for i in range(0, detections.shape[2]):
 
 	# extract the confidence (i.e., probability) associated with the prediction
@@ -37,4 +41,6 @@ for i in range(0, detections.shape[2]):
 		cv2.rectangle(image, (startX, startY), (endX, endY), (0, 0, 255), 2)
 		cv2.putText(image, text, (startX, y),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
+
+
 st.image(image)
