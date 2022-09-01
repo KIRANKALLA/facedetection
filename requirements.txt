@@ -3,4 +3,4 @@ streamlit
 imutils
 sklearn
 numpy
-PIL
+Pillow
