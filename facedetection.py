@@ -36,7 +36,5 @@ if img_file_buffer is not None:
 	    cv2.rectangle(image, (startX, startY), (endX, endY), (0, 0, 255), 2)
 	    cv2.putText(image, text, (startX, y),
 	    cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
-
-
     st.image(image)
 
