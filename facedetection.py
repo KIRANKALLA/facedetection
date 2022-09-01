@@ -9,10 +9,6 @@ import numpy as np
 img_file_buffer=st.camera_input('Take a pic')
 img=Image.open(img_file_buffer)
 img_array=np.array(img)
-c='''img_array=None
-if img_file_buffer is not None:
-    img=Image.open(img_file_buffer)
-    img_array=np.array(img)'''
 image = imutils.resize(img_array, width=400)
 (h, w) = image.shape[:2]
 
