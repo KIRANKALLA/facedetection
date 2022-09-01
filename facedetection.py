@@ -11,6 +11,7 @@ img=Image.open(img_file_buffer)
 img_array=np.array(img)
 
 image = imutils.resize(img_array,width=400)
+(h, w) = image.shape[:2]
 prototxt = 'deploy.prototxt'
 model = 'res10_300x300_ssd_iter_140000.caffemodel'
 net = cv2.dnn.readNetFromCaffe(prototxt, model)
