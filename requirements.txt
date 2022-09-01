@@ -1,0 +1,6 @@
+cv2
+streamlit
+imutils
+sklearn
+numpy
+PIL
