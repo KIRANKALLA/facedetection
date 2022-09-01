@@ -10,7 +10,7 @@ img_file_buffer=st.camera_input('Take a pic')
 if img_file_buffer is not None:
     img=Image.open('img_file_buffer')
     img_array=np.array(img)
-image = imutils.resize(image, width=400)
+image = imutils.resize(img_array, width=400)
 (h, w) = image.shape[:2]
 
 prototxt = 'deploy.prototxt'
