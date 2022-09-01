@@ -10,10 +10,7 @@ img_file_buffer=st.camera_input('Take a pic')
 if img_file_buffer is not None:
     img=Image.open(img_file_buffer)
     img_array=np.array(img)
-img_file_buffer=st.camera_input('Take a pic')
-if img_file_buffer is not None:
-    img=Image.open('img_file_buffer')
-    img_array=np.array(img)
+
 image = imutils.resize(img_array,width=400)
 prototxt = 'deploy.prototxt'
 model = 'res10_300x300_ssd_iter_140000.caffemodel'
