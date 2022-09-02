@@ -6,7 +6,7 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
-picture=st.camera_input('Take a picture')
+picture=st.file_uploader('Take a picture')
 if picture is not None:
 	img=Image.open(picture)
 	img_array=np.array(img)
