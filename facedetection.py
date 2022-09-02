@@ -31,7 +31,7 @@ for i in range(0, detections.shape[2]):
 
 	# filter out weak detections by ensuring the `confidence` is
 	# greater than the minimum confidence threshold
-	if confidence > 0.2:
+	if confidence > 0.1:
 		c+=1
 		# compute the (x, y)-coordinates of the bounding box for the object
 		box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
